@@ -2,12 +2,13 @@
 title: "Lab 3"
 author: "Taylor Reid Mattioli"
 date: "2024-02-09"
-output: html_document
+output: pdf_document
 ---
 
 ```{r}
 options(repos = "https://mirrors.nics.utk.edu/cran/")
 contrib.url("https://mirrors.nics.utk.edu/cran/")
+
 install.packages("palmerpenguins")
 library(palmerpenguins)
 library(tidyr) 
