@@ -1,0 +1,97 @@
+---
+title: "Lab 3"
+author: "Taylor Reid Mattioli"
+date: "2024-02-09"
+output: html_document
+---
+
+```{r}
+options(repos = "https://mirrors.nics.utk.edu/cran/")
+contrib.url("https://mirrors.nics.utk.edu/cran/")
+install.packages("palmerpenguins")
+library(palmerpenguins)
+library(tidyr) 
+library(dplyr)
+library(tidyverse)
+data(package='palmerpenguins')
+```
+
+## Data
+The data used in this lab represent the patterns of morphological traits in three different species of penguin. This data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, and were compiled by Dr. Allison Horst and colleagues.
+
+```{r, echo=FALSE}
+knitr::include_graphics("/Users/taylormattioli/Desktop/EVS_591/penguins/featured.png")
+```
+
+
+## Single trait distribution
+```{r, include=TRUE}
+penguins %>%
+  ggplot() +
+  geom_density(mapping = aes(x = bill_length_mm, fill=species), alpha=0.5)
+```
+
+```{r, include=TRUE}
+penguins %>%
+  ggplot() +
+  geom_histogram(mapping = aes(x = bill_length_mm, fill=species)) +
+  facet_wrap(~species, nrow=3)
+```
+## Relationship between multiple traits
+
+```{r, include=TRUE}
+penguins %>%
+  ggplot(mapping = aes(x = body_mass_g, y=flipper_length_mm, color=species)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+
+## Sexual dimorphism
+```{r, include=TRUE}
+penguins %>%
+  ggplot(mapping = aes(x = bill_length_mm, y=bill_depth_mm, color=sex)) +
+  geom_point(size=1) +
+  facet_wrap(~species)
+```
+```{r, include=TRUE}
+penguins %>%
+  ggplot(mapping = aes(x=flipper_length_mm, y=sex, color=sex)) +
+  geom_boxplot(outlier.alpha = 0, alpha=0) +
+  geom_jitter(width = 0, size=1) +
+  coord_flip() +
+  facet_wrap(~species)
+```
+## Free exploration
+
+```{r, include=TRUE}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x=year, fill=island)) +
+  facet_wrap(~species)
+```
+
+```{r, include=TRUE}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x=year, fill=species)) +
+  facet_wrap(~island)
+```
+
+```{r, include=TRUE}
+penguins %>%
+  ggplot(mapping = aes(x=flipper_length_mm, y=sex, color=sex)) +
+  geom_boxplot(outlier.alpha = 0, alpha=0) +
+  geom_jitter(width = 0, size=1) +
+  coord_flip() +
+  facet_wrap(~island)
+```
+```{r, include=TRUE}
+penguins %>%
+  ggplot(mapping = aes(x=bill_length_mm, y=sex, color=sex)) +
+  geom_boxplot(outlier.alpha = 0, alpha=0) +
+  geom_jitter(width = 0, size=1) +
+  coord_flip() +
+  facet_wrap(~species)
+```
+
+

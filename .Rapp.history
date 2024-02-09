@@ -1,0 +1,19 @@
+Y
+update.packages()
+ls()
+2+2
+install.packages("palmerpenguins")library(palmerpenguins)library(tidyr)library(tidyverse)data(package='palmerpenguins')
+install.packages("palmerpenguins")library(palmerpenguins)library(tidyr)library(dplyr)library(tidyverse)
+getwd()
+library(palmerpenguins)#
+> library(tidyr)#
+> library(dplyr)#
+> library(tidyverse)
+library(palmerpenguins)#
+> library(tidyr)#
+> library(dplyr)#
+> library(tidyverse)#
+> getwd()
+install.packages("palmerpenguins")library(palmerpenguins)library(tidyr)library(dplyr)library(tidyverse)data(package='palmerpenguins')
+install.packages("palmerpenguins")library(palmerpenguins)library(tidyr)library(dplyr)library(tidyverse)data(package='palmerpenguins')
+options(repos=c(CRAN="https://mirrors.nics.utk.edu/cran/"))
